@@ -118,7 +118,7 @@ var ConversationPanel = (function () {
   function displayMessage(newPayload, typeValue) {
     var isUser = isUserMessage(typeValue);
     var textExists = (newPayload.input && newPayload.input.text) ||
-      (newPayload.output && newPayload.output.text);
+      (newPayload.output || newPayload.output.text);
     if (isUser !== null && textExists) {
       // Create new message generic elements
       var responses = buildMessageDomElements(newPayload, isUser);
